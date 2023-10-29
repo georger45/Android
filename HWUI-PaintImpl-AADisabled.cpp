@@ -165,12 +165,12 @@ static void applyLegacyFlagsToFont(uint32_t flags, SkFont* font) {
     font->setEmbeddedBitmaps ((flags & sEmbeddedBitmaps) != 0);
     font->setForceAutoHinting((flags & sForceAutoHinting) != 0);
 
-    //if (flags & sAntiAliasFlag) {                                                     *
-    //    font->setEdging(SkFont::Edging::kAntiAlias);                                  *
-    //} else {                                                                          * ORIGINAL CODE COMMENTED OUT.
-    //    font->setEdging(SkFont::Edging::kAlias);                                      *
-    //}                                                                                 *			
-    font->setEdging(SkFont::Edging::kAlias);                                            // NEW CODE TO TURN FONT SMOOTHING OFF.
+    //if (flags & sAntiAliasFlag) {                          *
+    //    font->setEdging(SkFont::Edging::kAntiAlias);       *
+    //} else {                                               * ORIGINAL CODE COMMENTED OUT.
+    //    font->setEdging(SkFont::Edging::kAlias);           *
+    //}                                                      *			
+    font->setEdging(SkFont::Edging::kAlias);                 // NEW CODE TO TURN FONT SMOOTHING OFF.
 }
 
 uint32_t Paint::GetSkPaintJavaFlags(const SkPaint& paint) {
