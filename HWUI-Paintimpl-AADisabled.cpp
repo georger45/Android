@@ -94,10 +94,10 @@ void Paint::setAntiAlias(bool aa) {
     SkASSERT(mFont.getEdging() != SkFont::Edging::kSubpixelAntiAlias);
     // JavaPaint antialiasing affects both the SkPaint and SkFont settings.
 
-    //SkPaint::setAntiAlias(aa);													* ORIGINAL CODE COMMENTED OUT.
-    //mFont.setEdging(aa ? SkFont::Edging::kAntiAlias : SkFont::Edging::kAlias);	*
-    SkPaint::setAntiAlias(false);													// NEW CODE TO TURN ANTIALIASING OFF.
-    mFont.setEdging(SkFont::Edging::kAlias);										//
+    //SkPaint::setAntiAlias(aa);                                                    * ORIGINAL CODE COMMENTED OUT.
+    //mFont.setEdging(aa ? SkFont::Edging::kAntiAlias : SkFont::Edging::kAlias);    *
+    SkPaint::setAntiAlias(false);                                                   // NEW CODE TO TURN ANTIALIASING OFF.
+    mFont.setEdging(SkFont::Edging::kAlias);                                        //
 }
 
 ////////////////// Java flags compatibility //////////////////
@@ -165,12 +165,12 @@ static void applyLegacyFlagsToFont(uint32_t flags, SkFont* font) {
     font->setEmbeddedBitmaps ((flags & sEmbeddedBitmaps) != 0);
     font->setForceAutoHinting((flags & sForceAutoHinting) != 0);
 
-    //if (flags & sAntiAliasFlag) {										*
-    //    font->setEdging(SkFont::Edging::kAntiAlias);					*
-    //} else {															* ORIGINAL CODE COMMENTED OUT.
-    //    font->setEdging(SkFont::Edging::kAlias);						*
-    //}																	*			
-    font->setEdging(SkFont::Edging::kAlias);							// NEW CODE TO TURN FONT SMOOTHING OFF.
+    //if (flags & sAntiAliasFlag) {                                                     *
+    //    font->setEdging(SkFont::Edging::kAntiAlias);                                  *
+    //} else {                                                                          * ORIGINAL CODE COMMENTED OUT.
+    //    font->setEdging(SkFont::Edging::kAlias);                                      *
+    //}                                                                                 *			
+    font->setEdging(SkFont::Edging::kAlias);                                            // NEW CODE TO TURN FONT SMOOTHING OFF.
 }
 
 uint32_t Paint::GetSkPaintJavaFlags(const SkPaint& paint) {
